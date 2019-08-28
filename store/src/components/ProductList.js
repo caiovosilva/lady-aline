@@ -4,9 +4,6 @@ import Title from './Title'
 import {ProductConsumer} from '../context'
 
 export default class ProductList extends Component {
-    state = {
-        //products: storeProducts
-    }
     render() {
         return (
             <React.Fragment>
