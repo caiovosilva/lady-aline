@@ -35,11 +35,20 @@ export default class Details extends Component {
                                     </p>
                                     <p className="text-muted lead">{info}</p>
                                     <div>
-                                        <link to='/'>
+                                        <Link to='/'>
                                             <ButtonContainer>
                                                 voltar
                                             </ButtonContainer>
-                                        </link>
+                                        </Link>
+                                        <ButtonContainer
+                                            cart
+                                            disable={inCart}
+                                            onClick={() => {
+                                                value.addToCart(id)
+                                            }}
+                                        >
+                                            {inCart ? "No Carrinho" : "Adicionar ao Carrinho"}
+                                        </ButtonContainer>
                                     </div>
                                 </div>
 
