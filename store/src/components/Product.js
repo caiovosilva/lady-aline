@@ -24,9 +24,10 @@ export default class Product extends Component {
                             <button 
                                 className="cart-btn" 
                                 disable={inCart? "true" : undefined}
-                                onClick= {() => 
-                                    value.addToCart(id)
-                                }
+                                onClick= {() => {
+                                    value.addToCart(id);
+                                    value.openModal(id)
+                                }}
                             >
                                 {inCart ? (
                                     <p className="text-capitalize mb-0" disabled>

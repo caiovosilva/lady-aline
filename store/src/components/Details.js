@@ -45,6 +45,7 @@ export default class Details extends Component {
                                             disable={inCart}
                                             onClick={() => {
                                                 value.addToCart(id)
+                                                value.openModel(id)
                                             }}
                                         >
                                             {inCart ? "No Carrinho" : "Adicionar ao Carrinho"}
