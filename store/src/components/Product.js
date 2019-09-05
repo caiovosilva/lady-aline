@@ -23,7 +23,7 @@ export default class Product extends Component {
                             </Link>
                             <button 
                                 className="cart-btn" 
-                                disable={inCart? true : undefined}
+                                disable={inCart? "true" : undefined}
                                 onClick= {() => 
                                     value.addToCart(id)
                                 }
