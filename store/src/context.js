@@ -7,7 +7,7 @@ class ProductProvider extends Component {
     state = {
         products: [],
         detailProduct: detailProduct,
-        cart: storeProducts,
+        cart: [],
         modalOpen: false,
         modalProduct: detailProduct,
         cartSubTotal: 0,
@@ -44,15 +44,16 @@ class ProductProvider extends Component {
         const index = tempProducts.indexOf(this.getItem(id))
         const product = tempProducts[index]
         product.inCart = true
-        product.count++
-        product.total= product.count * product.price
+        product.count = 1
+        product.total = product.price
         this.setState(() => {
             return {
                 products: tempProducts,
                 cart: [...this.state.cart, product]
             }
-        }, () => {
-            console.log(this.state)
+        }, 
+        () => {
+            this.addTotals()
         })
     }
 
@@ -89,7 +90,19 @@ class ProductProvider extends Component {
     }
 
     clearCart = () => {
-        console.log("clear cart")
+        this.setState(() => {
+            return { cart: [] }
+        })
+    }
+
+    addTotals = () => {
+        let total = 0
+        this.state.cart.map(item => (total += item.total))
+        this.setState(() => {
+            return {
+                cartTotal: total
+            }
+        })
     }
 
     render() {
