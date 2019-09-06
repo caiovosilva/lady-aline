@@ -10,8 +10,6 @@ class ProductProvider extends Component {
         cart: [],
         modalOpen: false,
         modalProduct: detailProduct,
-        cartSubTotal: 0,
-        cartTax: 0,
         cartTotal: 0
     }
     componentDidMount() {
@@ -75,16 +73,24 @@ class ProductProvider extends Component {
         })
     }
 
-    increment = id => {
-        console.log("increment")
+    alterQuantity = (id, num) => {
+        let tempCart = [...this.state.cart]
+        const selectedProduct = tempCart.find(item => item.id === id)
+        const index = tempCart.indexOf(selectedProduct)
+        const product = tempCart[index]
+        product.count += num
+        product.total = product.count * product.price
 
+        this.setState(() => {
+            return {
+                cart: [...tempCart]
+            }
+        },
+        () => {
+            this.updateTotal()
+        })
     }
-
-    decrement = id => {
-        console.log("decrement")
-
-    }
-
+    
     removeItem = id => {
         let tempProducts = [...this.state.products]
         let tempCart = [...this.state.cart]
@@ -133,8 +139,7 @@ class ProductProvider extends Component {
                 addToCart: this.addToCart,
                 openModal: this.openModal,
                 closeModal: this.closeModal,
-                increment: this.increment,
-                decrement: this.decrement,
+                alterQuantity: this.alterQuantity,
                 removeItem: this.removeItem,
                 clearCart: this.clearCart
             }}>
