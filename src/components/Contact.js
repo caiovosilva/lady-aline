@@ -19,7 +19,7 @@ export default function Contact () {
               className='btn btn-lg btn-block btn-success'
               onClick={handleWhatsappMessage}
             >
-              <i class='fab fa-whatsapp' /> Iniciar Conversa
+              <i className='fab fa-whatsapp' /> Iniciar Conversa
             </button>
           </div>
         </div>
@@ -39,9 +39,6 @@ export default function Contact () {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Password' />
               </Form.Group>
-              <Form.Group controlId='formBasicChecbox'>
-                <Form.Check type='checkbox' label='Check me out' />
-              </Form.Group>
             </Form>
             <button type='submit' className='btn btn-lg btn-block btn-primary'>Enviar</button>
           </div>
@@ -53,5 +50,6 @@ export default function Contact () {
 
 function handleWhatsappMessage () {
   const url = `https://api.whatsapp.com/send?phone=${process.env.REACT_APP_CONTACT_NUMBER}`
+  console.log(url)
   window.open(url, '_blank')
 }
