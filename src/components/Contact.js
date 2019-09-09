@@ -11,6 +11,20 @@ export default function Contact () {
       <div className='card-deck mb-3'>
         <div className='card mb-4 shadow-sm'>
           <div className='card-header'>
+            <h4 className='my-0 font-weight-normal'>Whatsapp</h4>
+          </div>
+          <div className='card-body'>
+            <button
+              type='button'
+              className='btn btn-lg btn-block btn-success'
+              onClick={handleWhatsappMessage}
+            >
+              <i class='fab fa-whatsapp' /> Iniciar Conversa
+            </button>
+          </div>
+        </div>
+        <div className='card mb-4 shadow-sm'>
+          <div className='card-header'>
             <h4 className='my-0 font-weight-normal'>Email</h4>
           </div>
           <div className='card-body'>
@@ -21,7 +35,6 @@ export default function Contact () {
                   Nós não compartilharemos seu email com ninguém.
                 </Form.Text>
               </Form.Group>
-
               <Form.Group controlId='formBasicPassword'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Password' />
@@ -33,14 +46,6 @@ export default function Contact () {
             <button type='submit' className='btn btn-lg btn-block btn-primary'>Enviar</button>
           </div>
         </div>
-        <div className='card mb-4 shadow-sm'>
-          <div className='card-header'>
-            <h4 className='my-0 font-weight-normal'>Whatsapp</h4>
-          </div>
-          <div className='card-body'>
-            <button type='button' className='btn btn-lg btn-block btn-success' onClick={handleWhatsappMessage}>Iniciar Conversa</button>
-          </div>
-        </div>
       </div>
     </div>
   )
@@ -48,6 +53,5 @@ export default function Contact () {
 
 function handleWhatsappMessage () {
   const url = `https://api.whatsapp.com/send?phone=${process.env.REACT_APP_CONTACT_NUMBER}`
-  console.log(url)
   window.open(url, '_blank')
 }
