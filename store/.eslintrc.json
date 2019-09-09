@@ -3,9 +3,7 @@
         "browser": true,
         "es6": true
     },
-    "extends": [
-        "airbnb"
-    ],
+    // "extends": "standard",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -21,6 +19,5 @@
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
