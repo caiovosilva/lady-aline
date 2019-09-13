@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../images/logo.svg'
+import logo from '../img/phoneIcon.svg'
 import styled from 'styled-components'
 import { ButtonContainer } from './Button'
 
